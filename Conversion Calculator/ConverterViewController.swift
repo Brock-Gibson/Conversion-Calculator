@@ -10,30 +10,50 @@ import UIKit
 
 class ConverterViewController: UIViewController {    
     
-    @IBOutlet weak var inputDisplay: UITextField!
     @IBOutlet weak var outputDisplay: UITextField!
+    @IBOutlet weak var inputDisplay: UITextField!
+    
+    var converter: [Converter]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var converter: [Converter] = [Converter(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
+        converter = [Converter(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
                                       Converter(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
                                       Converter(label: "miles to kilometers", inputUnit: "mi", outputUnit: "km"),
                                       Converter(label: "kilometers to miles", inputUnit: "km", outputUnit: "mi")]
 
-        inputDisplay.text = converter[1].inputUnit
-        outputDisplay.text = converter[1].outputUnit
+        inputDisplay.text = converter![1].inputUnit
+        outputDisplay.text = converter![1].outputUnit
         
     }
 
     @IBAction func changeConverter(_ sender: Any) {
-        print("triggered")
+        let alert = UIAlertController(title: "Choose Converter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: self.converter![0].label, style: UIAlertAction.Style.default, handler: {
+            (alertAction) -> Void in
+            self.inputDisplay.text = self.converter![0].inputUnit
+            self.outputDisplay.text = self.converter![0].outputUnit
+        }))
+        
+        alert.addAction(UIAlertAction(title: self.converter![1].label, style: UIAlertAction.Style.default, handler: {
+            (alertAction) -> Void in
+            self.inputDisplay.text = self.converter![1].inputUnit
+            self.outputDisplay.text = self.converter![1].outputUnit
+        }))
+        
+        alert.addAction(UIAlertAction(title: self.converter![2].label, style: UIAlertAction.Style.default, handler: {
+            (alertAction) -> Void in
+            self.inputDisplay.text = self.converter![2].inputUnit
+            self.outputDisplay.text = self.converter![2].outputUnit
+        }))
+        
+        alert.addAction(UIAlertAction(title: self.converter![3].label, style: UIAlertAction.Style.default, handler: {
+            (alertAction) -> Void in
+            self.inputDisplay.text = self.converter![3].inputUnit
+            self.outputDisplay.text = self.converter![3].outputUnit
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }

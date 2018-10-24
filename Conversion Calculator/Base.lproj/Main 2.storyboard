@@ -236,8 +236,8 @@
                         <viewLayoutGuide key="safeArea" id="RUU-Au-ZgM"/>
                     </view>
                     <connections>
-                        <outlet property="inputDisplay" destination="eDy-vK-mmC" id="Tfv-Fh-QcM"/>
-                        <outlet property="outputDisplay" destination="pUv-SR-cKV" id="tHi-ec-jGx"/>
+                        <outlet property="inputDisplay" destination="pUv-SR-cKV" id="G4G-Xu-82k"/>
+                        <outlet property="outputDisplay" destination="eDy-vK-mmC" id="6VC-MX-LpY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqg-tp-bWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
